@@ -3,7 +3,7 @@ Views for the user API.
 """
 from rest_framework import generics
 
-from app.user.serializers import UserSerializer
+from user.serializers import UserSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
