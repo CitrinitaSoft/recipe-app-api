@@ -9,6 +9,13 @@ from django.test import TestCase
 from core import models
 
 
+def create_user(
+    email='test@example.com', password='testpass123'
+):
+    """Create and return a sample user."""
+    return get_user_model().objects.create_user(email, password)
+
+
 class ModelTests(TestCase):
     """Test models."""
 
@@ -67,3 +74,12 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(str(recipe), recipe.title)
+
+    def test_create_tag(self):
+        """Test creating a tag is successful."""
+        tag = models.Tag.objects.create(
+            user=create_user(),
+            name='Tag1',
+        )
+
+        self.assertEqual(str(tag), tag.name)
