@@ -1,0 +1,5 @@
+Test
+docker compose run --rm app sh -c "python manage.py test"
+
+Make migrations
+docker compose run --rm app sh -c "python manage.py makemigrations"
